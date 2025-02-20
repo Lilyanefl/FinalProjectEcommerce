@@ -1,0 +1,99 @@
+html,
+body {
+  background-color: #f6edf7;
+}
+.prodotti-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.prodotto-card {
+  background-color: #f8f3fc;
+  border: 1px solid #d4c2e2;
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 450px;
+
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  flex: 1 1 calc(33.33% - 40px);
+  min-width: 250px;
+}
+
+.prodotto-card h3 {
+  color: #6a4ca4;
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.prodotto-card p {
+  font-size: 16px;
+  color: #444;
+  margin: 5px 0;
+}
+
+.prodotto-card label {
+  display: block;
+  font-weight: bold;
+  margin-top: 10px;
+  color: #6a4ca4;
+}
+
+.prodotto-card select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #d4c2e2;
+  border-radius: 5px;
+  font-size: 14px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.prodotto-card button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.prodotto-card button:first-of-type {
+  background-color: #6a4ca4;
+  color: white;
+}
+
+.prodotto-card button:first-of-type:hover {
+  background-color: #543d85;
+}
+
+.prodotto-card .wishlist-btn {
+  background-color: #fff;
+  color: #6a4ca4;
+  border: 2px solid #6a4ca4;
+}
+
+.prodotto-card .wishlist-btn:hover {
+  background-color: #6a4ca4;
+  color: white;
+}
+
+.prodotto-card .wishlist-btn.aggiunto {
+  background-color: #c73a3a;
+  color: white;
+  border-color: #c73a3a;
+}
+.prodotto-img {
+  width: 40%;
+  height: 25%;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-right: 15px;
+}

@@ -1,0 +1,16 @@
+<h2>🔍 Dettagli Ordine #{{ ordine?.id }}</h2>
+
+<div *ngIf="!ordine">Caricamento...</div>
+
+<ul *ngIf="ordine">
+  <li>📦 Stato: {{ ordine.stato }}</li>
+  <li>💰 Totale: {{ ordine.totale | currency : "EUR" }}</li>
+  <li>🛒 Prodotti:</li>
+  <ul>
+    <li *ngFor="let prodotto of ordine.prodotti">
+      <strong>{{ prodotto.prodotto?.nome }}</strong>
+      ({{ prodotto.quantita }}x) -
+      {{ prodotto.prezzoUnitario | currency : "EUR" }}
+    </li>
+  </ul>
+</ul>

@@ -1,0 +1,12 @@
+<div class="container">
+  <form (ngSubmit)="login($event)">
+    <label>Email:</label>
+    <input type="email" [(ngModel)]="email" name="email" required />
+    <label>Password:</label>
+    <input type="password" [(ngModel)]="password" name="password" required />
+    <button type="submit" [disabled]="isLoading">
+      {{ isLoading ? "🔄 Accesso in corso..." : "Accedi" }}
+    </button>
+    <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+  </form>
+</div>

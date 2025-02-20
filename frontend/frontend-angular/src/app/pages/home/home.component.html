@@ -1,0 +1,91 @@
+<h2>Lista Prodotti</h2>
+
+<div *ngIf="erroreMessaggio" class="errore-container">
+  {{ erroreMessaggio }}
+</div>
+<div *ngIf="successoMessaggio" class="errore-container">
+  {{ successoMessaggio }}
+</div>
+
+<div class="filter-container">
+  <input
+    type="text"
+    [(ngModel)]="searchQuery"
+    (input)="filtraProdotti()"
+    placeholder="Cerca un prodotto..."
+    class="search-bar"
+  />
+
+  <div class="filters">
+    <label>Ordina per:</label>
+    <select [(ngModel)]="filtroOrdine" (change)="aggiornaOrdinamento()">
+      <option value="default">🔄 Predefinito</option>
+      <option value="prezzo-asc">💰 Prezzo: dal più basso</option>
+      <option value="prezzo-desc">💰 Prezzo: dal più alto</option>
+      <option value="nome-asc">🔤 Nome: A-Z</option>
+      <option value="nome-desc">🔤 Nome: Z-A</option>
+    </select>
+  </div>
+</div>
+
+<div class="prodotti-container">
+  <div *ngFor="let prodotto of prodottiFiltrati" class="prodotto-card">
+    <img
+      *ngIf="prodotto?.immagineUrl"
+      [src]="'http://localhost:8080/' + prodotto.immagineUrl"
+      alt="{{ prodotto.nome }}"
+      (click)="vaiAiDettagli(prodotto.id)"
+      class="prodotto-img"
+    />
+
+    <div class="prodotto-info">
+      <h3>{{ prodotto?.nome }}</h3>
+      <p><strong>Tipologia:</strong> {{ prodotto?.tipologia }}</p>
+      <p><strong>Prezzo:</strong> {{ prodotto?.prezzo | currency : "EUR" }}</p>
+      <p>
+        <strong>Disponibilità:</strong>
+        {{ prodotto?.stock >= 1 ? "✅ In Stock" : "❌ Out of Stock" }}
+      </p>
+
+      <label>Taglia:</label>
+      <select
+        [(ngModel)]="prodotto.tagliaSelezionata"
+        (ngModelChange)="prodotto.tagliaSelezionata = $event"
+        [disabled]="!prodotto?.taglia?.length"
+      >
+        <option value="" disabled selected>Seleziona una taglia</option>
+        <option *ngFor="let taglia of prodotto?.taglia" [value]="taglia">
+          {{ taglia }}
+        </option>
+      </select>
+
+      <label>Colore:</label>
+      <select
+        [(ngModel)]="prodotto.coloreSelezionato"
+        (ngModelChange)="prodotto.coloreSelezionato = $event"
+        [disabled]="!prodotto?.colore?.length"
+      >
+        <option value="" disabled selected>Seleziona un colore</option>
+        <option *ngFor="let colore of prodotto?.colore" [value]="colore">
+          {{ colore }}
+        </option>
+      </select>
+
+      <button (click)="aggiungiAlCarrello(prodotto)">
+        🛒 Aggiungi al Carrello
+      </button>
+
+      <button
+        (click)="toggleWishlist(prodotto.id)"
+        class="wishlist-btn"
+        [class.aggiunto]="wishlist.has(prodotto.id)"
+      >
+        {{
+          wishlist.has(prodotto.id)
+            ? "❌ Rimuovi dalla Wishlist"
+            : "❤️ Aggiungi alla Wishlist"
+        }}
+      </button>
+    </div>
+  </div>
+</div>

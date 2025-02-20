@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&family=Outfit:wght@400;700&family=Roboto:wght@400;700&display=swap");
+h2 {
+  font-size: 3rem;
+  font-weight: 600;
+  text-align: center;
+  color: #a7abde;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-family: "Indie Flower", cursive;
+}
+button {
+  background-color: #e8d7fa;
+  border: 1px solid black;
+  padding: 10px 15px;
+  font-size: 16px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+  background-color: #b8a4d1;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+button:active {
+  background-color: #ca99ff;
+  box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.errore {
+  text-align: center;
+  font-family: "Outfit", sans-serif;
+  font-size: 38px;
+  color: #66527c;
+}

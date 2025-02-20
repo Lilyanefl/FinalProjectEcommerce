@@ -1,0 +1,60 @@
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&family=Outfit:wght@300;400;600&display=swap");
+
+.form-container {
+  background: #f5e8ff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 50%;
+  margin: auto;
+  font-family: "Outfit", sans-serif;
+}
+
+.title {
+  text-align: center;
+  color: #7a5ea6;
+  font-family: "Indie Flower", cursive;
+}
+
+.input-field,
+.file-input,
+select {
+  width: 100%;
+  padding: 8px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.save-button {
+  background: #7a5ea6;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.save-button:hover {
+  background: #6a4e96;
+}
+
+.back-button {
+  background: #d4b5ff;
+  color: #5a3b8c;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+
+.error-message {
+  color: red;
+  text-align: center;
+}

@@ -1,0 +1,92 @@
+<h2 class="title">Gestione Prodotti</h2>
+
+<p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+
+<div class="admin-form">
+  <h3 class="subtitle">Crea Nuovo Prodotto</h3>
+  <input
+    type="text"
+    [(ngModel)]="nuovoProdotto.nome"
+    placeholder="Nome"
+    class="input-field"
+  />
+  <input
+    type="text"
+    [(ngModel)]="nuovoProdotto.descrizione"
+    placeholder="Descrizione"
+    class="input-field"
+  />
+  <input
+    type="number"
+    [(ngModel)]="nuovoProdotto.prezzo"
+    placeholder="Prezzo"
+    class="input-field"
+    min="0"
+    step="0.01"
+  />
+  <input
+    type="number"
+    [(ngModel)]="nuovoProdotto.stock"
+    placeholder="Stock"
+    class="input-field"
+  />
+  <input
+    type="text"
+    [(ngModel)]="nuovoProdotto.codice"
+    placeholder="Codice prodotto"
+    class="input-field"
+  />
+  <select [(ngModel)]="nuovoProdotto.tipologia" class="input-field">
+    <option value="" disabled selected>Seleziona una tipologia</option>
+    <option *ngFor="let tipo of tipologie" [value]="tipo">{{ tipo }}</option>
+  </select>
+  <input type="file" (change)="handleFileInput($event)" class="file-input" />
+  <img
+    *ngIf="nuovoProdotto.immagineUrl"
+    [src]="'http://localhost:8080/' + nuovoProdotto.immagineUrl"
+    class="preview-image"
+  />
+  <input
+    type="text"
+    [(ngModel)]="nuovoProdotto.taglia"
+    placeholder="Taglie (es. 38,39,40)"
+    class="input-field"
+  />
+  <p *ngIf="erroreTaglia" class="error-message">
+    Inserisci solo numeri validi!
+  </p>
+  <input
+    type="text"
+    [(ngModel)]="nuovoProdotto.colore"
+    placeholder="Colori (es. Rosso,Blu)"
+    class="input-field"
+  />
+  <button (click)="creaProdotto()" class="save-button">Crea</button>
+</div>
+
+<h3 class="subtitle">📃 Lista Prodotti</h3>
+<div class="prodotti-container">
+  <div *ngFor="let prodotto of prodotti" class="prodotto-card">
+    <img
+      *ngIf="prodotto?.immagineUrl"
+      [src]="'http://localhost:8080/' + prodotto.immagineUrl"
+      class="prodotto-img"
+    />
+    <h4>{{ prodotto.nome }}</h4>
+    <p>{{ prodotto.descrizione }}</p>
+    <p>💰 {{ prodotto.prezzo | currency }}</p>
+    <p>📦 Stock: {{ prodotto.stock }}</p>
+    <p>🔑 Codice: {{ prodotto.codice }}</p>
+    <p>👕 Taglie: {{ prodotto.taglia?.join(", ") || "N/A" }}</p>
+    <p>🎨 Colori: {{ prodotto.colore?.join(", ") || "N/A" }}</p>
+    <button
+      [routerLink]="['/admin/prodotti/modifica', prodotto.id]"
+      class="edit-button"
+    >
+      ✏️ Modifica
+    </button>
+    <button (click)="eliminaProdotto(prodotto.id)" class="delete-button">
+      ❌ Elimina
+    </button>
+  </div>
+</div>

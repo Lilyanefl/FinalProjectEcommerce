@@ -1,0 +1,73 @@
+<h2>Il tuo Carrello</h2>
+
+<p *ngIf="errorMessage" style="color: red">{{ errorMessage }}</p>
+
+<div class="errore" *ngIf="carrello.prodotti.length === 0">
+  <p>Il tuo carrello è vuoto.</p>
+</div>
+
+<div class="prodotto-container">
+  <div *ngFor="let prodotto of carrello.prodotti" class="prodotto-card">
+    <img
+      *ngIf="prodotto?.immagineUrl"
+      [src]="'http://localhost:8080/' + prodotto.immagineUrl"
+      alt="{{ prodotto.nome }}"
+      class="prodotto-img"
+    />
+    <div class="dettagli">
+      <h3>{{ prodotto.nome }}</h3>
+      <p>{{ prodotto.descrizione }}</p>
+      <p>💰 Prezzo: {{ prodotto.prezzo | currency : "EUR" }}</p>
+      <p>📦 Quantità: {{ prodotto.quantita }}</p>
+      <p>👕 Taglia: {{ prodotto.taglia || "N/A" }}</p>
+      <p>🎨 Colore: {{ prodotto.colore || "N/A" }}</p>
+
+      <button
+        (click)="
+          prodotto.quantita > 1
+            ? rimuoviQuantita(prodotto.id, prodotto.taglia, prodotto.colore)
+            : rimuoviProdotto(prodotto.id, prodotto.taglia, prodotto.colore)
+        "
+      >
+        -
+      </button>
+      <button
+        (click)="
+          aggiungiQuantita(prodotto.id, prodotto.taglia, prodotto.colore)
+        "
+      >
+        +
+      </button>
+
+      <button
+        (click)="rimuoviProdotto(prodotto.id, prodotto.taglia, prodotto.colore)"
+      >
+        X
+      </button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="carrello.prodotti.length > 0" class="totale-carrello">
+  <h3>
+    💰 Il valore del totale ammonta a:
+    {{ getTotaleCarrello() | currency : "EUR" }}
+  </h3>
+</div>
+
+<div class="cart-actions">
+  <button
+    (click)="svuotaCarrello()"
+    *ngIf="carrello.prodotti.length > 0"
+    class="svuota-carrello"
+  >
+    🗑️ Svuota Carrello
+  </button>
+  <button
+    (click)="checkout()"
+    *ngIf="carrello.prodotti.length > 0"
+    class="checkout"
+  >
+    🛒 Procedi al Checkout
+  </button>
+</div>

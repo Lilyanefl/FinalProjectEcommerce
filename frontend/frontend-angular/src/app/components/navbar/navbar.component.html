@@ -1,0 +1,67 @@
+<nav class="navbar">
+  <a routerLink="/" class="logo">
+    <img src="assets\logo.webp" alt="Boutique of Lilies Logo" />
+  </a>
+  <div class="menu-icon" (click)="toggleMenu()">&#9776;</div>
+
+  <div class="links" [ngClass]="{ active: menuOpen }">
+    <a routerLink="/" class="nav-link" (click)="closeMenu()">Home</a>
+    <a
+      *ngIf="isAdmin()"
+      routerLink="/admin/prodotti"
+      class="nav-link"
+      (click)="closeMenu()"
+      >Creazione Prodotto</a
+    >
+    <a
+      *ngIf="!isLoggedIn()"
+      routerLink="/login"
+      class="nav-link"
+      (click)="closeMenu()"
+      >Login</a
+    >
+    <a
+      *ngIf="!isLoggedIn()"
+      routerLink="/registrazione"
+      class="nav-link"
+      (click)="closeMenu()"
+      >Registrati</a
+    >
+    <a
+      *ngIf="isLoggedIn()"
+      routerLink="/wishlist"
+      class="nav-link"
+      (click)="closeMenu()"
+      >Wishlist</a
+    >
+    <a
+      *ngIf="isLoggedIn()"
+      routerLink="/carrello"
+      class="nav-link"
+      (click)="closeMenu()"
+      >Carrello</a
+    >
+    <a
+      *ngIf="isLoggedIn()"
+      routerLink="/ordini"
+      class="nav-link"
+      (click)="closeMenu()"
+      >I miei ordini</a
+    >
+    <a
+      *ngIf="isLoggedIn()"
+      routerLink="/profilo"
+      class="nav-link"
+      (click)="closeMenu()"
+    >
+      Gestione Profilo</a
+    >
+    <a
+      *ngIf="isLoggedIn()"
+      (click)="logout()"
+      class="nav-link logout"
+      (click)="closeMenu()"
+      >Logout</a
+    >
+  </div>
+</nav>

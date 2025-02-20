@@ -1,0 +1,24 @@
+<h2>La tua Wishlist</h2>
+
+<p class="errore" *ngIf="messaggio">{{ messaggio }}</p>
+
+<div class="prodotto-container">
+  <div *ngFor="let item of wishlist" class="prodotto-card">
+    <img
+      *ngIf="item.prodotto.immagineUrl"
+      [src]="'http://localhost:8080/' + item.prodotto.immagineUrl"
+      alt="{{ item.prodotto.nome }}"
+      class="prodotto-img"
+    />
+    <div class="prodotto-info">
+      <h3>{{ item.prodotto.nome }}</h3>
+      <p>{{ item.prodotto.descrizione }}</p>
+      <p>
+        <strong>Prezzo:</strong> {{ item.prodotto.prezzo | currency : "EUR" }}
+      </p>
+      <button (click)="rimuoviDallaWishlist(item.prodotto.id)">
+        ❌ Rimuovi
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,185 @@
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&family=Outfit:wght@400;700&family=Roboto:wght@400;700&display=swap");
+h2 {
+  font-size: 3rem;
+  font-weight: 600;
+  text-align: center;
+  color: #a7abde;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-family: "Indie Flower", cursive;
+}
+.errore {
+  text-align: center;
+  font-family: "Outfit", sans-serif;
+  font-size: 38px;
+  color: #66527c;
+}
+
+p[ngIf="errorMessage"] {
+  color: red;
+  text-align: center;
+}
+
+div[ngIf="carrello.prodotti.length === 0"] p {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #a088b9;
+}
+
+.prodotto-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: flex-start;
+  padding: 1rem;
+  margin-left: 1rem;
+}
+
+.prodotto-card {
+  background-color: #f8e8f8;
+  border-radius: 12px;
+  padding: 0.8rem;
+  flex: 1 1 calc(33.333% - 2rem);
+  max-width: calc(33.333% - 2rem);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  min-height: 200px;
+}
+
+.prodotto-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 8px;
+  margin-right: 1rem;
+}
+
+.dettagli {
+  flex: 1;
+}
+
+.dettagli h3 {
+  font-size: 1rem;
+  color: #6b4e71;
+  margin-bottom: 0.3rem;
+  font-family: "Outfit", sans-serif;
+}
+
+.dettagli p {
+  font-size: 0.9rem;
+  color: #6b4e71;
+  font-family: "Roboto", sans-serif;
+}
+
+.dettagli button {
+  background-color: #e7c6ff;
+  border: none;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: 0.3s;
+  min-width: 40px;
+  font-family: "Outfit", sans-serif;
+  margin-right: 0.3rem;
+}
+
+.dettagli button:hover {
+  background-color: #deaaff;
+}
+
+.dettagli button:nth-of-type(3) {
+  background-color: #f5a5c0;
+}
+
+.dettagli button:nth-of-type(3):hover {
+  background-color: #e089a9;
+}
+
+.totale-carrello {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  color: #a7abde;
+}
+
+.cart-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.svuota-carrello,
+.checkout {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  background-color: #e7c6ff;
+  font-family: "Outfit", sans-serif;
+  cursor: pointer;
+  transition: 0.3s;
+  max-width: 200px;
+}
+
+.svuota-carrello:hover,
+.checkout:hover {
+  background-color: #ecbcfd;
+}
+
+@media (max-width: 1024px) {
+  .prodotto-container {
+    justify-content: center;
+    margin-left: 0;
+  }
+
+  .prodotto-card {
+    flex: 1 1 calc(50% - 2rem);
+    max-width: calc(50% - 2rem);
+    min-height: 250px;
+  }
+}
+
+@media (max-width: 768px) {
+  h2 {
+    font-size: 2.5rem;
+  }
+
+  .prodotto-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5rem;
+  }
+
+  .prodotto-card {
+    flex: 1 1 100%;
+    max-width: 90%;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-height: 300px;
+  }
+
+  .prodotto-img {
+    width: 100px;
+    height: 100px;
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+  }
+
+  .dettagli {
+    text-align: center;
+  }
+
+  .cart-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .svuota-carrello,
+  .checkout {
+    width: 100%;
+    max-width: 250px;
+  }
+}

@@ -1,0 +1,122 @@
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&family=Outfit:wght@400;700&family=Roboto:wght@400;700&display=swap");
+
+h2 {
+  font-size: 3rem;
+  font-weight: 600;
+  text-align: center;
+  color: #a7abde;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-family: "Indie Flower", cursive;
+}
+.errore {
+  text-align: center;
+  font-family: "Outfit", sans-serif;
+  font-size: 38px;
+  color: #66527c;
+}
+
+.prodotto-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: flex-start;
+  padding: 1rem;
+  margin-left: 1rem;
+}
+
+.prodotto-card {
+  background-color: #f8e8f8;
+  border-radius: 12px;
+  padding: 0.8rem;
+  flex: 1 1 calc(33.333% - 2rem);
+  max-width: calc(33.333% - 2rem);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  min-height: 200px;
+}
+
+.prodotto-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 8px;
+  margin-right: 1rem;
+}
+
+.prodotto-info {
+  flex: 1;
+}
+
+.prodotto-info h3 {
+  font-size: 1rem;
+  color: #6b4e71;
+  margin-bottom: 0.3rem;
+  font-family: "Outfit", sans-serif;
+}
+
+.prodotto-info p {
+  font-size: 0.9rem;
+  color: #6b4e71;
+  font-family: "Roboto", sans-serif;
+}
+
+.prodotto-info button {
+  background-color: #f5a5c0;
+  border: none;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: 0.3s;
+  font-family: "Outfit", sans-serif;
+}
+
+.prodotto-info button:hover {
+  background-color: #e089a9;
+}
+
+@media (max-width: 1024px) {
+  .prodotto-container {
+    justify-content: center;
+    margin-left: 0;
+  }
+
+  .prodotto-card {
+    flex: 1 1 calc(50% - 2rem);
+    max-width: calc(50% - 2rem);
+    min-height: 250px;
+  }
+}
+
+@media (max-width: 768px) {
+  h2 {
+    font-size: 2.5rem;
+  }
+
+  .prodotto-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5rem;
+  }
+
+  .prodotto-card {
+    flex: 1 1 100%;
+    max-width: 90%;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-height: 300px;
+  }
+
+  .prodotto-img {
+    width: 100px;
+    height: 100px;
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+  }
+
+  .prodotto-info {
+    text-align: center;
+  }
+}

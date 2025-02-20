@@ -1,0 +1,64 @@
+<button class="back-button" [routerLink]="['/admin/prodotti']">
+  ← Indietro
+</button>
+<h2 class="title">Modifica Prodotto: {{ prodotto.nome }}</h2>
+<p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+
+<div class="form-container" *ngIf="prodotto">
+  <div class="image-preview">
+    <label>Immagine attuale:</label>
+    <img
+      *ngIf="prodotto.immagineUrl"
+      [src]="'http://localhost:8080/' + prodotto.immagineUrl"
+      width="100"
+    />
+  </div>
+
+  <label>Nome:</label>
+  <input type="text" [(ngModel)]="prodotto.nome" class="input-field" />
+
+  <label>Descrizione:</label>
+  <input type="text" [(ngModel)]="prodotto.descrizione" class="input-field" />
+
+  <label>Prezzo:</label>
+  <input type="number" [(ngModel)]="prodotto.prezzo" class="input-field" />
+
+  <label>Stock:</label>
+  <input type="number" [(ngModel)]="prodotto.stock" class="input-field" />
+
+  <label>Codice:</label>
+  <input
+    type="text"
+    [(ngModel)]="prodotto.codice"
+    class="input-field"
+    disabled
+  />
+
+  <label>Tipologia:</label>
+  <select [(ngModel)]="prodotto.tipologia" class="input-field">
+    <option *ngFor="let tipo of tipologie" [value]="tipo">{{ tipo }}</option>
+  </select>
+
+  <label>Taglie:</label>
+  <input
+    type="text"
+    [(ngModel)]="prodotto.taglia"
+    placeholder="Esempio: 38,39,40"
+    class="input-field"
+  />
+
+  <label>Colori:</label>
+  <input
+    type="text"
+    [(ngModel)]="prodotto.colore"
+    placeholder="Esempio: Rosso,Blu"
+    class="input-field"
+  />
+
+  <label>Carica una nuova immagine:</label>
+  <input type="file" (change)="onFileSelected($event)" class="file-input" />
+
+  <button (click)="salvaModifiche()" class="save-button">
+    💾 Salva Modifiche
+  </button>
+</div>

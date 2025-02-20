@@ -1,0 +1,110 @@
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&family=Outfit:wght@400;700&family=Roboto:wght@400;700&display=swap");
+h2 {
+  font-size: 3rem;
+  font-weight: 600;
+  text-align: center;
+  color: #a7abde;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-family: "Indie Flower", cursive;
+}
+.search-bar {
+  width: 300px;
+  padding: 10px;
+  border: 2px solid #c4a7e7;
+  border-radius: 10px;
+  font-size: 16px;
+  outline: none;
+  background-color: #f4e7ff;
+  color: #5a3e7a;
+  transition: all 0.3s ease-in-out;
+  margin: 0 auto;
+  font-family: "Outfit", sans-serif;
+}
+
+.search-bar:focus {
+  border-color: #8b5cf6;
+  background-color: #ffffff;
+}
+
+.filters {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin: 8px 0;
+  background: #f4e7ff;
+  padding: 10px 15px;
+  border-radius: 12px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  font-family: "Outfit", sans-serif;
+}
+
+.filters label {
+  font-size: 16px;
+  font-weight: bold;
+  color: #5a3e7a;
+}
+
+.filters select {
+  padding: 8px 12px;
+  border: 2px solid #c4a7e7;
+  border-radius: 8px;
+  font-size: 14px;
+  background-color: #ffffff;
+  color: #5a3e7a;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.filters select:hover {
+  border-color: #8b5cf6;
+}
+
+.filter-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.errore-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(255, 69, 58, 0.9);
+  color: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+  font-weight: bold;
+  max-width: 300px;
+  text-align: center;
+  animation: fadeInOut 5s ease-in-out;
+}
+
+.successo-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(50, 205, 50, 0.9);
+  color: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+  font-weight: bold;
+  max-width: 300px;
+  text-align: center;
+  animation: fadeInOut 5s ease-in-out;
+}
+
+@media (max-width: 768px) {
+  .filter-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-bar {
+    width: 100%;
+  }
+}

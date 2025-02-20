@@ -1,0 +1,37 @@
+<div class="prodotto-container">
+  <h1 class="prodotto-titolo">{{ prodotto?.nome }}</h1>
+
+  <img
+    *ngIf="prodotto?.immagineUrl"
+    [src]="'http://localhost:8080/' + prodotto.immagineUrl"
+    alt="{{ prodotto?.nome }}"
+    class="prodotto-img"
+  />
+
+  <div class="prodotto-info">
+    <p><strong>Codice:</strong> {{ prodotto?.codice }}</p>
+    <p><strong>Descrizione:</strong> {{ prodotto?.descrizione }}</p>
+    <p><strong>Tipologia:</strong> {{ prodotto?.tipologia }}</p>
+    <p><strong>Prezzo:</strong> {{ prodotto?.prezzo | currency : "EUR" }}</p>
+    <p>
+      <strong>Taglie disponibili:</strong>
+      {{ prodotto?.taglia?.join(", ") || "Nessuna" }}
+    </p>
+    <p>
+      <strong>Colori disponibili:</strong>
+      {{ prodotto?.colore?.join(", ") || "Nessuno" }}
+    </p>
+
+    <p
+      class="prodotto-disponibilita"
+      [ngClass]="prodotto?.stock >= 1 ? 'in-stock' : 'out-stock'"
+    >
+      <strong>Disponibilità:</strong>
+      {{ prodotto?.stock >= 1 ? "✅ In Stock" : "❌ Out of Stock" }}
+    </p>
+  </div>
+
+  <button class="torna-btn" (click)="tornaIndietro()">
+    🔙 Torna ai prodotti
+  </button>
+</div>

@@ -1,0 +1,30 @@
+<div class="container">
+  <h2>👤 Profilo Utente</h2>
+
+  <p *ngIf="errorMessage" style="color: red">{{ errorMessage }}</p>
+
+  <div *ngIf="utente">
+    <p>
+      <strong>Nome:</strong> <span *ngIf="!isEditing">{{ utente.nome }}</span>
+    </p>
+    <input *ngIf="isEditing" type="text" [(ngModel)]="utente.nome" />
+
+    <p>
+      <strong>Email:</strong> <span *ngIf="!isEditing">{{ utente.email }}</span>
+    </p>
+    <input *ngIf="isEditing" type="email" [(ngModel)]="utente.email" />
+
+    <div *ngIf="isEditing">
+      <p><strong>Password:</strong></p>
+      <input
+        type="password"
+        [(ngModel)]="utente.password"
+        placeholder="Inserisci nuova password"
+      />
+    </div>
+    <button *ngIf="isEditing" (click)="annullaModifica()">💾 Indietro</button>
+    <button *ngIf="!isEditing" (click)="abilitaModifica()">✏️ Modifica</button>
+    <button *ngIf="isEditing" (click)="salvaModifiche()">💾 Salva</button>
+    <button (click)="logout()">🚪 Logout</button>
+  </div>
+</div>

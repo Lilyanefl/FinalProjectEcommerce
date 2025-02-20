@@ -1,0 +1,165 @@
+@import url("https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Montserrat:wght@400;500;700&display=swap");
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 0;
+  margin-top: 40px;
+  min-height: 50vh;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+form {
+  font-family: "Montserrat", sans-serif;
+  max-width: 500px;
+  width: 95%;
+  padding: 25px 30px;
+  border: 1px solid #e0e0e0;
+  border-radius: 15px;
+  background-color: #f5daee;
+  box-shadow: 0 4px 10px rgba(255, 217, 246, 0.1);
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h2 {
+  font-family: "Gamja Flower", cursive;
+  color: #555;
+  margin-top: 0;
+  margin-bottom: 15px;
+  text-align: center;
+  font-size: 28px;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+  color: #555;
+  font-family: "Gamja Flower", cursive;
+  font-size: 22px;
+  align-self: flex-start;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #fff;
+  font-size: 16px;
+  color: #333;
+  transition: border-color 0.3s ease;
+  font-family: "Montserrat", sans-serif;
+  box-sizing: border-box;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+  border-color: #efd5fc;
+  outline: none;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #ffffff;
+  color: #555;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-family: "Montserrat", sans-serif;
+  margin-top: 5px;
+}
+
+button:hover {
+  background-color: #fffde9;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.error-message {
+  color: #ff6b6b;
+  text-align: center;
+  margin-top: 12px;
+  font-size: 14px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.login-link {
+  margin-top: 15px;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  color: #555;
+}
+
+.login-link a {
+  color: #dbc3fa;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.login-link a:hover {
+  color: #4a7dff;
+}
+
+@media (max-height: 700px) {
+  .container {
+    min-height: auto;
+    padding: 15px 0;
+    margin-top: 25px;
+  }
+
+  form {
+    padding: 15px 20px;
+  }
+
+  h2 {
+    font-size: 24px;
+    margin-bottom: 12px;
+  }
+}
+
+@media (min-width: 768px) {
+  form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 15px 25px;
+    align-items: start;
+    max-width: 600px;
+  }
+
+  h2 {
+    grid-column: 1 / -1;
+    text-align: center;
+  }
+
+  label {
+    margin-bottom: 0;
+    align-self: end;
+  }
+
+  button,
+  .error-message,
+  .login-link {
+    grid-column: 1 / -1;
+  }
+
+  form > * {
+    align-self: stretch;
+  }
+}

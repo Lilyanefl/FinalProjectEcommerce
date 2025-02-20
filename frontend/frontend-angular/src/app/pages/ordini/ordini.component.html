@@ -1,0 +1,11 @@
+<h2>I Miei Ordini</h2>
+
+<div class="errore" *ngIf="ordini.length === 0">Nessun ordine trovato.</div>
+
+<ul *ngFor="let ordine of ordini">
+  <li>
+    🛍️ Ordine #{{ ordine.id }} - Totale: {{ ordine.totale }}€ - Stato:
+    <b>{{ ordine.stato }}</b>
+    <button (click)="vaiADettagli(ordine.id)">🔍 Dettagli</button>
+  </li>
+</ul>
